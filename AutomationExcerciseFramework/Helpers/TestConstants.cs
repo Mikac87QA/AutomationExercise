@@ -21,5 +21,8 @@ namespace AutomationExcerciseFramework.Helpers
         public const string ZipCode = "11500";
         public const string Phone = "0641144554";
 
+        //contact us data
+        public const string Subject = "Request";
+        public const string Message = "Can I buy with credit card?";
     }
 }
