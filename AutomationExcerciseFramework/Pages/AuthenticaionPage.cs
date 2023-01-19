@@ -16,6 +16,7 @@ namespace AutomationExcerciseFramework.Pages
         public By name = By.Name("name");
         public By signupEmail = By.CssSelector(".signup-form [type='email']");
         public By signupBtn = By.CssSelector(".signup-form [type='submit']");
+        
 
         public AuthenticaionPage(IWebDriver driver)
         {

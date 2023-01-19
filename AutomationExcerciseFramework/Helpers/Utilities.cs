@@ -16,7 +16,7 @@ namespace AutomationExcerciseFramework.Helpers
             this._driver = driver;
         }
 
-        public string GenerateRandomEmail ()
+        public string GenerateRandomEmail()
         {
 
             return string.Format("email{0}@mailinator.com", RandomName.Next(10000, 100000));    

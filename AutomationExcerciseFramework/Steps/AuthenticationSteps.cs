@@ -54,7 +54,7 @@ namespace AutomationExcerciseFramework.Steps
             ut.ClickOnElement(ap.signupBtn);
         }
 
-        [When(@"user fills in required fields")]
+        [StepDefinition(@"user fills in required fields")]
         public void WhenUserFillsInRequiredFields()
         {
             SignupPage sp = new SignupPage(Driver);
@@ -69,7 +69,7 @@ namespace AutomationExcerciseFramework.Steps
             ut.EnterTextInElement(sp.mobileNumber, TestConstants.Phone);
         }
 
-        [When(@"submits the signup form")]
+        [StepDefinition(@"submits the signup form")]
         public void WhenSubmitsTheSignupForm()
         {
             SignupPage sp = new SignupPage(Driver);
@@ -77,12 +77,26 @@ namespace AutomationExcerciseFramework.Steps
             //ut.ClickOnElement(sp.createAcc);
         }
 
-        [Then(@"user will get '(.*)' success mesage")]
+        [StepDefinition(@"user will get '(.*)' success mesage")]
         public void ThenUserWillGetSuccessMesage(string message)
         {
             AccountCreatedPage acp = new AccountCreatedPage(Driver);
             Assert.True(ut.TextPresentInElement(message), "User did NOT get expected success message");
             ut.ClickOnElement(acp.continueBtn);
+        }
+
+        [When(@"user clicks on Delete Account button")]
+        public void WhenUserClicksOnDeleteAccountButton()
+        {
+            HeaderPage hp = new HeaderPage(Driver);
+            ut.ClickOnElement(hp.deleteAcc);
+        }
+
+        [Then(@"user will get '(.*)' success message")]
+        public void ThenUserWillGetSuccessMessage(string message)
+        {
+            AccountDeletedPage adp = new AccountDeletedPage(Driver);
+            Assert.True(ut.TextPresentInElement(message), "User did NOT get succes message");
         }
 
     }
