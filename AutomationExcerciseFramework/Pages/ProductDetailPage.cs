@@ -10,7 +10,8 @@ namespace AutomationExcerciseFramework.Pages
     {
         readonly IWebDriver _driver;
         public By addToCartBtn = By.CssSelector(".product-details [type='button']");
-        public By ctnBtn = By.CssSelector(".modal-body [href='/view_cart']");   
+        public By ctnBtn = By.CssSelector(".modal-body [href='/view_cart']");
+        public By productName = By.XPath("//*[@class='product-information']//h2");
 
         public ProductDetailPage(IWebDriver driver)
         {

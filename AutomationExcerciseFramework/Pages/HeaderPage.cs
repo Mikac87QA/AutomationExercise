@@ -19,7 +19,7 @@ namespace AutomationExcerciseFramework.Pages
         {
             this._driver = driver;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(header));    
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(header));     
         }
 
     }

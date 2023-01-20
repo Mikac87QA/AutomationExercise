@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AutomationExcerciseFramework.Helpers
 {
-    public class Utilities 
+    public class Utilities
     {
         readonly IWebDriver _driver;
         private static readonly Random RandomName = new Random();
@@ -19,7 +19,7 @@ namespace AutomationExcerciseFramework.Helpers
         public string GenerateRandomEmail()
         {
 
-            return string.Format("email{0}@mailinator.com", RandomName.Next(10000, 100000));    
+            return string.Format("email{0}@mailinator.com", RandomName.Next(10000, 100000));
         }
 
         public void ClickOnElement(By locator)
@@ -49,12 +49,21 @@ namespace AutomationExcerciseFramework.Helpers
             selectElement.SelectByValue(option);
         }
 
-       
+
         public bool TextPresentInElement(string text)
         {
             By headline = By.XPath("//*[contains(text(),'" + text + "')]");
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
             return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(headline)).Displayed;
-        }   
+        }
+
+
+        public string ReturnTextFromElement(By locator)
+        {
+            return _driver.FindElement(locator).GetAttribute("textContent");
+            //return _driver.FindElement(locator).Text;
+        }
     }
+   
+
 }

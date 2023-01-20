@@ -12,6 +12,13 @@ namespace AutomationExcerciseFramework.Steps
         Utilities ut = new Utilities(Driver);
         HeaderPage hp = new HeaderPage(Driver);
 
+        private readonly ProductData productData;
+
+        public PDPSteps(ProductData productData)
+        {
+            this.productData = productData;
+        }
+
         [Given(@"user opens products page")]
         public void GivenUserOpensProductsPage()
         {
@@ -37,6 +44,7 @@ namespace AutomationExcerciseFramework.Steps
         public void WhenUserClickOnAddToCartButton()
         {
             ProductDetailPage pdp = new ProductDetailPage(Driver);
+            productData.ProductName = ut.ReturnTextFromElement(pdp.productName);
             ut.ClickOnElement(pdp.addToCartBtn);
         }
         
