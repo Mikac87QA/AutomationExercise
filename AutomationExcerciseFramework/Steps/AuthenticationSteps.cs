@@ -12,13 +12,13 @@ namespace AutomationExcerciseFramework.Steps
         Utilities ut = new Utilities(Driver);
         HeaderPage hp = new HeaderPage(Driver);
 
-        [Given(@"user opens sign in page")]
+        [StepDefinition(@"user opens sign in page")]
         public void GivenUserOpensSignInPage()
         {
             ut.ClickOnElement(hp.loginLink);
         }
         
-        [Given(@"enters correct credentials")]
+        [StepDefinition(@"enters correct credentials")]
         public void GivenEntersCorrectCredentials()
         {
             AuthenticaionPage ap = new AuthenticaionPage(Driver);
@@ -26,7 +26,7 @@ namespace AutomationExcerciseFramework.Steps
             ut.EnterTextInElement(ap.loginPassword, TestConstants.Password);
         }
         
-        [When(@"user subbmits login form")]
+        [StepDefinition(@"user subbmits login form")]
         public void WhenUserSubbmitsLoginForm()
         {
             AuthenticaionPage ap = new AuthenticaionPage(Driver);

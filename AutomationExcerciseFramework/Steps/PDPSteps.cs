@@ -55,11 +55,58 @@ namespace AutomationExcerciseFramework.Steps
             ut.ClickOnElement(pdp.ctnBtn);
         }
         
-        [Then(@"shopping cart will be displayed with'(.*)' product inside")]
+        [StepDefinition(@"shopping cart will be displayed with'(.*)' product inside")]
         public void ThenShoppingCartWillBeDisplayed(string wTopIcon)
         {
             ViewCartPage vcp = new ViewCartPage(Driver);
             Assert.True(ut.ElementIsDisplayed(vcp.wTopIcon), "There is no products inside cart");
         }
+
+        [When(@"user clicks on Procced to checkout button")]
+        public void WhenUserClicksOnProccedToCheckoutButton()
+        {
+            ViewCartPage vcp = new ViewCartPage(Driver);
+            ut.ClickOnElement(vcp.proceedToCheckBtn);
+        }
+
+        [When(@"enters his comment in window")]
+        public void WhenEntersHisCommentInWindow()
+        {
+            CheckoutPage chp = new CheckoutPage(Driver);
+            ut.EnterTextInElement(chp.messBox, TestConstants.checkComment);
+            productData.ChkMessage = ut.ReturnTextFromElement(chp.messBox);
+        }
+
+        [When(@"clicks on Place Order button")]
+        public void WhenClicksOnPlaceOrderButton()
+        {
+            CheckoutPage chp = new CheckoutPage(Driver);
+            ut.ClickOnElement(chp.placeOrderBtn);
+        }
+
+        [When(@"enters all required fields")]
+        public void WhenEntersAllRequiredFields()
+        {
+            PaymentPage pp = new PaymentPage(Driver);
+            ut.EnterTextInElement(pp.nameOnCard, TestConstants.FullName);
+            ut.EnterTextInElement(pp.cardNumber, TestConstants.CardNumber);
+            ut.EnterTextInElement(pp.cvcNumber, TestConstants.CVC);
+            ut.EnterTextInElement(pp.expMonth, TestConstants.ExpM);
+            ut.EnterTextInElement(pp.expYear, TestConstants.ExpY);
+        }
+
+        [When(@"clicks on Pay and Confirm button")]
+        public void WhenClicksOnPayAndConfirmButton()
+        {
+            PaymentPage pp = new PaymentPage(Driver);
+            ut.ClickOnElement(pp.payConfBtn);
+        }
+
+        [Then(@"user will get '(.*)' message")]
+        public void ThenUserWillGetMessage(string p0)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }

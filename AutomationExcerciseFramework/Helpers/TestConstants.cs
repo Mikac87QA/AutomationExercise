@@ -29,5 +29,12 @@ namespace AutomationExcerciseFramework.Helpers
 
         //PDP data
         public const string WinterTop = "Winter top";
+        public const string checkComment = "I like this top";
+        public const string FullName = "Mirza Zimonjic";
+        public const string CardNumber = "4111111111111111";
+        public const string CVC = "213";
+        public const string ExpM = "07";
+        public const string ExpY = "2024";
+
     }
 }
