@@ -18,6 +18,7 @@ namespace AutomationExcerciseFramework.Steps
         {
             this.productData = productData;
         }
+ 
 
         [Given(@"user opens products page")]
         public void GivenUserOpensProductsPage()
@@ -103,9 +104,38 @@ namespace AutomationExcerciseFramework.Steps
         }
 
         [Then(@"user will get '(.*)' message")]
-        public void ThenUserWillGetMessage(string p0)
+        public void ThenUserWillGetMessage()
         {
-            ScenarioContext.Current.Pending();
+            Assert.True(ut.TextPresentInElement(productData.ChkMessage), "Order with comment:" + productData.ChkMessage + "was NOT placed successfully");
+        }
+
+        [When(@"enters name and email adress")]
+        public void WhenEntersNameAndEmailAdress()
+        {
+            ProductDetailPage pdp = new ProductDetailPage(Driver);
+            ut.EnterTextInElement(pdp.reviewName, TestConstants.FirstName);
+            ut.EnterTextInElement(pdp.reviewMail, TestConstants.Username);
+        }
+
+        [When(@"writes review")]
+        public void WhenWritesReview()
+        {
+            ProductDetailPage pdp = new ProductDetailPage(Driver);
+            ut.EnterTextInElement(pdp.reviewComm, TestConstants.checkComment);
+        }
+
+        [When(@"clicks on Submit button")]
+        public void WhenClicksOnSubmitButton()
+        {
+            ProductDetailPage pdp = new ProductDetailPage(Driver);
+            ut.ClickOnElement(pdp.submitBtn);
+        }
+
+        [Then(@"he gets Thank you for your review message")]
+        public void ThenHeGetsMessage()
+        {
+            ProductDetailPage pdp = new ProductDetailPage(Driver);
+            Assert.True(ut.ElementIsDisplayed(pdp.confirmMessage), "Your review was NOT sent successfully");
         }
 
     }

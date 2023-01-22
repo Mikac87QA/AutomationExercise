@@ -16,7 +16,7 @@ namespace AutomationExcerciseFramework.Pages
         public By expMonth = By.CssSelector(".payment-information [name='expiry_month']");
         public By expYear = By.CssSelector(".payment-information [name='expiry_year']");
         public By payConfBtn = By.CssSelector(".payment-information [data-qa='pay-button']");
-
+        public By payDone = By.CssSelector(".container [data-qa='order-placed']");
         public PaymentPage(IWebDriver driver)
         {
             this._driver = driver;
