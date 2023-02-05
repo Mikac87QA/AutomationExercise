@@ -103,8 +103,8 @@ namespace AutomationExcerciseFramework.Steps
             ut.ClickOnElement(pp.payConfBtn);
         }
 
-        [Then(@"user will get '(.*)' message")]
-        public void ThenUserWillGetMessage()
+        [Then(@"user will get confirmation message")]
+        public void ThenUserWillGetConfirmationMessage()
         {
             Assert.True(ut.TextPresentInElement(productData.ChkMessage), "Order with comment:" + productData.ChkMessage + "was NOT placed successfully");
         }

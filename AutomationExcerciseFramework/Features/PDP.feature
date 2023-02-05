@@ -26,7 +26,7 @@ Scenario: User can add products to cart and proceed to checkout
 		And clicks on Place Order button
 	When enters all required fields
 		And clicks on Pay and Confirm button
-	Then user will get 'Order Placed' message
+	Then user will get confirmation message
 
 Scenario: User can submit review on any product
 	Given user opens products page
